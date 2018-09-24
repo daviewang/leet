@@ -1,3 +1,11 @@
+/*
+ *  In the stack, it will save the delta between current number and min number. 
+ *  If the delta is positive, it means current number is bigger than min number. 
+ *  	Nothing change, save the delta. Current number = min number + delta.
+ *  If the delta is negative, it means current number is smaller than min number. 
+ *  	min number will be updated. Current number is the min number.
+ *  If we find the poped out stack is negative, it means min number need to be updated.
+ */
 package First;
 import java.util.Stack;
 
@@ -29,7 +37,7 @@ public class W0155MinStack {
     	
     	long temp = s.pop();
     	if (temp < 0) {
-    		minNum = temp - minNum;
+    		minNum = minNum - temp;
     	}
     }
     
