@@ -5,14 +5,17 @@ public class W0116PopulatingNextRight {
 	public void connect(TreeLinkNode root) {
         if (root == null)
         	return;
+        
         TreeLinkNode curr = root;
         
         while (curr != null) {
         	TreeLinkNode saveCurrNode = curr;
         	while (saveCurrNode != null) {
-        		saveCurrNode.left.next = saveCurrNode.right;
-        		if (saveCurrNode.next != null) 
-        			saveCurrNode.right.next = saveCurrNode.next.left;
+        		if (saveCurrNode.left != null) {
+        			saveCurrNode.left.next = saveCurrNode.right;
+        			if (saveCurrNode.next != null) 
+        				saveCurrNode.right.next = saveCurrNode.next.left;
+        		}
         		saveCurrNode = saveCurrNode.next;
         	}
         	curr = curr.left;
